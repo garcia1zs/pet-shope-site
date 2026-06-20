@@ -180,3 +180,114 @@ document.addEventListener("DOMContentLoaded", function() {
     const today = new Date().toISOString().split('T')[0];
     dataInput.setAttribute('min', today);
 });
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // ==========================================
+    // 1. MENU HAMBÚRGUER (MOBILE)
+    // ==========================================
+    const btnMobileMenu = document.getElementById('btn-mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconMobileMenu = document.getElementById('icon-mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (btnMobileMenu && mobileMenu) {
+        // Abrir/Fechar ao clicar no botão hambúrguer
+        btnMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            
+            // Troca o ícone de Barras para X
+            if (mobileMenu.classList.contains('hidden')) {
+                iconMobileMenu.classList.remove('fa-xmark');
+                iconMobileMenu.classList.add('fa-bars');
+            } else {
+                iconMobileMenu.classList.remove('fa-bars');
+                iconMobileMenu.classList.add('fa-xmark');
+            }
+        });
+
+        // Fechar o menu ao clicar em um link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                iconMobileMenu.classList.remove('fa-xmark');
+                iconMobileMenu.classList.add('fa-bars');
+            });
+        });
+    }
+
+    // ==========================================
+    // 2. MODAL DE AGENDAMENTO
+    // ==========================================
+    const btnAbrirModal = document.getElementById('btn-abrir-modal');
+    const btnFecharModal = document.getElementById('btn-fechar-modal');
+    const btnCancelar = document.getElementById('btn-cancelar');
+    const modalAgendamento = document.getElementById('modal-agendamento');
+    const formAgendamento = document.getElementById('form-agendamento');
+
+    function toggleModal() {
+        if (!modalAgendamento) return;
+        
+        // Verifica se está escondido (possui pointer-events-none)
+        if (modalAgendamento.classList.contains('pointer-events-none')) {
+            modalAgendamento.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden'; // Impede o scroll do fundo
+        } else {
+            modalAgendamento.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto'; // Restaura o scroll
+        }
+    }
+
+    if(btnAbrirModal) btnAbrirModal.addEventListener('click', toggleModal);
+    if(btnFecharModal) btnFecharModal.addEventListener('click', toggleModal);
+    if(btnCancelar) btnCancelar.addEventListener('click', toggleModal);
+
+    // Envio do formulário do Modal para o WhatsApp
+    if (formAgendamento) {
+        formAgendamento.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Pega os valores
+            const tutor = document.getElementById('tutor').value;
+            const pet = document.getElementById('pet').value;
+            const servico = document.getElementById('servico').value;
+            const data = document.getElementById('data').value;
+            const horario = document.getElementById('horario').value;
+            
+            // Monta a mensagem
+            const mensagem = `Olá, meu nome é ${tutor}. Gostaria de agendar um ${servico} para o meu pet ${pet} no dia ${data} às ${horario}.`;
+            
+            // Troque esse número pelo WhatsApp da loja (exemplo: 5511999999999)
+            const numeroWhatsapp = '5511999999999';
+            const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(mensagem)}`;
+            
+            window.open(url, '_blank');
+            toggleModal(); // Fecha o modal após enviar
+            formAgendamento.reset(); // Limpa o formulário
+        });
+    }
+
+    // ==========================================
+    // 3. ANIMAÇÕES SCROLL (GSAP)
+    // ==========================================
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        
+        const revealElements = document.querySelectorAll(".gs-reveal");
+        revealElements.forEach((elem) => {
+            gsap.fromTo(elem, 
+                { autoAlpha: 0, y: 50 }, 
+                { 
+                    duration: 0.8, 
+                    autoAlpha: 1, 
+                    y: 0, 
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%", // Inicia quando o topo do elemento atinge 85% da tela
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+    }
+});
