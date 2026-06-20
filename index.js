@@ -115,7 +115,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Event Listeners de Abertura e Fechamento
-    btnAbrir.addEventListener("click", abrirModal);
+    if (btnAbrir) {
+    btnAbrir.addEventListener("click", function(e) {
+        e.preventDefault();
+        abrirModal();
+    });
+}
     btnFechar.addEventListener("click", fecharModal);
     btnCancelar.addEventListener("click", fecharModal);
 
@@ -180,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const today = new Date().toISOString().split('T')[0];
     dataInput.setAttribute('min', today);
 });
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {});
     
     // ==========================================
     // 1. MENU HAMBÚRGUER (MOBILE)
@@ -289,5 +294,4 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
         });
-    }
-});
+    };
