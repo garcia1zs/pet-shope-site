@@ -130,11 +130,28 @@
                 observer.observe(track);
 
                 function animateCarousel() {
-                    if(isCarouselVisible) {
-                        currentPosition -= 1;
-                        if (currentPosition <= -(track.scrollWidth / 2)) currentPosition = 0;
-                        track.style.transform = `translateX(${currentPosition}px)`;
+                    let lastTime = 0;
+
+        function animateCarousel(timestamp) {
+
+            if (timestamp - lastTime > 25) {
+
+                if (isCarouselVisible) {
+                    currentPosition -= 1;
+
+                    if (currentPosition <= -(track.scrollWidth / 2)) {
+                        currentPosition = 0;
                     }
+
+                    track.style.transform =
+                        `translate3d(${currentPosition}px,0,0)`;
+                }
+
+                lastTime = timestamp;
+            }
+
+    requestAnimationFrame(animateCarousel);
+}
                     animationId = requestAnimationFrame(animateCarousel);
                 }
                 animationId = requestAnimationFrame(animateCarousel);
