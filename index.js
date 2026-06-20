@@ -33,7 +33,7 @@
                 },
                 y: 40,
                 opacity: 0,
-                duration: 0.8,
+                duration: 0.2,
                 ease: "power2.out"
             });
         });
@@ -41,7 +41,7 @@
         // Botão pulsando (CTA / WhatsApp)
         gsap.to(".btn-pulse", {
             scale: 1.05,
-            duration: 0.8,
+            duration: 0.5,
             repeat: -1,
             yoyo: true,
             ease: "power1.inOut"
