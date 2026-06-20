@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós | Meu Cheirinho Pet Shop 🐾</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petblue: '#3B82F6',
+                        petgreen: '#10B981',
+                        petorange: '#F97316',
+                        petyellow: '#FACC15',
+                    },
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'glow-blue': '0 0 20px rgba(59, 130, 246, 0.5)',
+                        'glow-green': '0 0 20px rgba(16, 185, 129, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #FAFAFA; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.3); }
+        .text-gray-600:hover { color: #3B82F6; text-decoration: underline; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-2 cursor-pointer no-underline text-gray-800 hover:text-gray-800">
+                    <div class="w-10 h-10 bg-gradient-to-br from-petblue to-petgreen rounded-xl flex items-center justify-center text-white text-xl shadow-glow-blue overflow-hidden">
+                        <img src="../img/logo-meu-cheirinho.jpg" alt="Logo" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <span class="font-bold text-xl hidden sm:block">PetShop</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-petblue font-medium transition-colors">Início</a>
+                    <a href="index.html#servicos" class="text-gray-600 hover:text-petblue font-medium transition-colors">Serviços</a>
+                    <a href="index.html#banho-tosa" class="text-gray-600 hover:text-petblue font-medium transition-colors">Banho e Tosa</a>
+                    <a href="index.html#galeria" class="text-gray-600 hover:text-petblue font-medium transition-colors">Galeria</a>
+                    <a href="#" class="text-petblue font-bold transition-colors">Sobre Nós</a>
+                </nav>
+                
+                <!-- Desktop WhatsApp Button -->
+                <div class="hidden md:block">
+                    <a href="https://wa.me/5511999999999" target="_blank" class="btn-pulse inline-flex items-center gap-2 bg-petgreen hover:bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold transition-colors shadow-glow-green">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Contato
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="btn-mobile-menu" class="text-gray-800 hover:text-petblue focus:outline-none text-2xl transition-colors">
+                        <i id="icon-mobile-menu" class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Dropdown -->
+            <nav id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white/95 backdrop-blur-lg border-t border-gray-100 shadow-xl flex flex-col py-4 px-6 space-y-4 transition-all duration-300">
+                <a href="index.html" class="mobile-link text-gray-700 font-medium text-lg hover:text-petblue border-b border-gray-50 pb-2">Início</a>
+                <a href="index.html#servicos" class="mobile-link text-gray-700 font-medium text-lg hover:text-petblue border-b border-gray-50 pb-2">Serviços</a>
+                <a href="index.html#banho-tosa" class="mobile-link text-gray-700 font-medium text-lg hover:text-petblue border-b border-gray-50 pb-2">Banho e Tosa</a>
+                <a href="index.html#galeria" class="mobile-link text-gray-700 font-medium text-lg hover:text-petblue border-b border-gray-50 pb-2">Galeria</a>
+                <a href="#" class="mobile-link text-petblue font-bold text-lg border-b border-gray-50 pb-2">Sobre Nós</a>
+                <a href="https://wa.me/5511999999999" target="_blank" class="mobile-link mt-4 inline-flex justify-center items-center gap-2 bg-petgreen hover:bg-emerald-600 text-white px-6 py-3 rounded-full font-bold transition-colors w-full">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Falar no WhatsApp
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- SEÇÃO SOBRE NÓS -->
+        <section id="sobre" class="pt-32 pb-24 relative bg-white overflow-hidden min-h-screen flex items-center">
+            <!-- Efeitos de fundo (Blobs) -->
+            <div class="absolute top-0 left-0 w-96 h-96 bg-petgreen/10 rounded-full blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-petblue/10 rounded-full blur-3xl pointer-events-none translate-x-1/3 translate-y-1/3"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+                    
+                    <!-- Coluna 1: Imagem e Números (Desktop: Esquerda) -->
+                    <div class="w-full lg:w-1/2 relative pr-0 sm:pr-8 lg:pr-12 mt-8 lg:mt-0 order-2 lg:order-1 gs-reveal">
+                        <!-- Container da Imagem Principal -->
+                        <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-square md:aspect-[4/5] group">
+                            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Cães felizes no Meu Cheirinho Pet Shop" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60"></div>
+                        </div>
+
+                        <!-- Card Flutuante com Números de Destaque -->
+                        <div class="relative lg:absolute -mt-16 lg:mt-0 bottom-0 lg:-bottom-10 right-0 lg:-right-8 bg-white p-6 sm:p-8 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-50 flex flex-col gap-6 z-20 mx-4 sm:mx-0">
+                            
+                            <!-- Destaque 1 -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-petblue text-2xl font-bold">
+                                    <i class="fa-solid fa-paw"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-3xl font-extrabold text-gray-900 leading-none mb-1">+700</h4>
+                                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Pets Atendidos</p>
+                                </div>
+                            </div>
+
+                            <!-- Divisor -->
+                            <div class="h-px w-full bg-gray-100"></div>
+
+                            <!-- Destaque 2 -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-petgreen text-2xl font-bold">
+                                    <i class="fa-solid fa-face-smile-beam"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-3xl font-extrabold text-gray-900 leading-none mb-1">+300</h4>
+                                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Clientes Satisfeitos</p>
+                                </div>
+                            </div>
+
+                            <!-- Divisor -->
+                            <div class="h-px w-full bg-gray-100"></div>
+
+                            <!-- Destaque 3 -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 bg-yellow-50 rounded-2xl flex items-center justify-center text-petyellow text-2xl font-bold">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-3xl font-extrabold text-gray-900 leading-none mb-1">5.0</h4>
+                                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Avaliação Clientes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2: Conteúdo de Texto (Desktop: Direita) -->
+                    <div class="w-full lg:w-1/2 order-1 lg:order-2 gs-reveal">
+                        <!-- Cabeçalho da Seção -->
+                        <div class="mb-8">
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 text-petgreen font-bold text-sm tracking-wide uppercase mb-4">
+                                <i class="fa-solid fa-shop"></i> Sobre o Meu Cheirinho
+                            </span>
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+                                Quem Cuida do Seu <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-petgreen to-petblue">Melhor Amigo</span>
+                            </h2>
+                            <p class="text-lg text-gray-600 leading-relaxed font-medium mb-4">
+                                Localizado no coração de Rio Grande da Serra, na <strong class="text-gray-900">Rua José Maria de Figueiredo, 153</strong>, o <strong class="text-gray-900">Meu Cheirinho Pet Shop</strong> nasceu da paixão por animais. 
+                            </p>
+                            <p class="text-lg text-gray-600 leading-relaxed font-medium">
+                                Nossa missão é oferecer cuidado, higiene, bem-estar e carinho para cães e gatos, proporcionando uma experiência tranquila e segura tanto para os pets quanto para seus tutores de toda a região.
+                            </p>
+                        </div>
+
+                        <!-- Cards com Diferenciais -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 mb-10">
+                            <div class="flex items-center gap-4 bg-white p-3 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                                <div class="w-12 h-12 rounded-full bg-green-100 text-petgreen flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-heart"></i></div>
+                                <span class="text-gray-800 font-bold">Atendimento com carinho</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white p-3 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 text-petblue flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-bath"></i></div>
+                                <span class="text-gray-800 font-bold">Ambiente limpo e seguro</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white p-3 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                                <div class="w-12 h-12 rounded-full bg-orange-100 text-petorange flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-scissors"></i></div>
+                                <span class="text-gray-800 font-bold">Profissionais especializados</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-4 bg-white p-3 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                                <div class="w-12 h-12 rounded-full bg-yellow-100 text-petyellow flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-car"></i></div>
+                                <span class="text-gray-800 font-bold">Serviço de Táxi Dog</span>
+                            </div>
+
+                            <div class="flex items-center gap-4 bg-white p-3 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                                <div class="w-12 h-12 rounded-full bg-petgreen text-white flex items-center justify-center text-xl shrink-0 shadow-md"><i class="fa-solid fa-star"></i></div>
+                                <span class="text-gray-800 font-bold">Clientes satisfeitos</span>
+                            </div>
+
+                            <div class="flex items-center gap-4 bg-white p-3 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100">
+                                <div class="w-12 h-12 rounded-full bg-petblue text-white flex items-center justify-center text-xl shrink-0 shadow-md"><i class="fa-solid fa-dog"></i></div>
+                                <span class="text-gray-800 font-bold">Foco no bem-estar animal</span>
+                            </div>
+                        </div>
+
+                        <!-- Texto Final com Destaque -->
+                        <div class="relative bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-2xl rounded-tl-none border-l-4 border-petgreen mb-10 shadow-sm">
+                            <i class="fa-solid fa-quote-left absolute top-4 right-6 text-4xl text-petblue opacity-10"></i>
+                            <p class="text-gray-700 italic font-medium relative z-10 text-lg">
+                                "No Meu Cheirinho, cada pet é tratado como parte da nossa família. Nosso compromisso é oferecer cuidado, conforto e muito carinho para que seu melhor amigo tenha sempre a melhor experiência."
+                            </p>
+                        </div>
+
+                        <!-- Botão CTA -->
+                        <a href="https://wa.me/5511999999999" target="_blank" class="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1EBE5A] text-white px-8 py-4 rounded-full font-extrabold text-lg transition-all hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(37,211,102,0.3)] w-full sm:w-auto">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i> Agendar pelo WhatsApp
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 11. Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Marca -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-petblue to-petgreen rounded-xl flex items-center justify-center text-white text-xl">
+                            <i class="fa-solid fa-paw"></i>
+                        </div>
+                        <span class="font-bold text-2xl tracking-tight text-white">Pet<span class="text-petblue">Shop</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">O maior e mais moderno centro de bem-estar animal da sua região. Tudo feito com muito amor.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/meucheirinhopetshop" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-petblue transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-gray-100">Links Rápidos</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="index.html" class="hover:text-petyellow transition-colors">Início</a></li>
+                        <li><a href="index.html#servicos" class="hover:text-petyellow transition-colors">Serviços</a></li>
+                        <li><a href="index.html#banho-tosa" class="hover:text-petyellow transition-colors">Banho e Tosa</a></li>
+                        <li><a href="index.html#galeria" class="hover:text-petyellow transition-colors">Galeria</a></li>
+                    </ul>
+                </div>
+
+                <!-- Serviços -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-gray-100">Nossos Serviços</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="index.html#servicos" class="hover:text-petyellow transition-colors">Banho Tradicional</a></li>
+                        <li><a href="index.html#servicos" class="hover:text-petyellow transition-colors">Tosa na Máquina / Tesoura</a></li>
+                        <li><a href="index.html#servicos" class="hover:text-petyellow transition-colors">Banho de Ozônio</a></li>
+                        <li><a href="index.html#servicos" class="hover:text-petyellow transition-colors">Táxi Dog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-gray-100">Contato</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-petorange"></i>
+                            <span>Rua José Maria de Figueiredo, 153<br>Centro - Rio Grande da Serra - SP</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-petgreen"></i>
+                            <span>(11) 99999-9999</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Meu Cheirinho Pet Shop. Todos os direitos reservados.</p>
+                <div class="flex gap-4 text-2xl text-gray-600">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-pix"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts para Animação (GSAP) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- O mesmo arquivo JS serve para o mobile menu funcionar aqui também -->
+    <script src="index.js"></script>
+</body>
+</html>
