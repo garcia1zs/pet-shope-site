@@ -63,6 +63,74 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    width: 65px;
+    height: 65px;
+
+    background: #25D366;
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    box-shadow: 0 8px 25px rgba(37, 211, 102, .4);
+
+    z-index: 9999;
+
+    transition: all .3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float::before {
+    content: "";
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background: #25D366;
+
+    animation: pulse-whatsapp 2s infinite;
+
+    z-index: -1;
+}
+
+@keyframes pulse-whatsapp {
+    0% {
+        transform: scale(1);
+        opacity: .7;
+    }
+
+    70% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 72px;
+        height: 72px;
+        font-size: 38px;
+    }
+}
     </style>
 </head>
 <body class="text-gray-800 antialiased">
@@ -123,7 +191,7 @@
         <!-- Background Image with Parallax -->
         <div class="absolute inset-0 w-full h-full">
             <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-                 alt="Cachorro e gato felizes" class="w-full h-full object-cover parallax-bg object-center">
+               loading="eager"  alt="Cachorro e gato felizes" class="w-full h-full object-cover parallax-bg object-center">
             <!-- Overlay -->
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
         </div>
@@ -302,7 +370,7 @@
                 <!-- Serviço 1 -->
                 <div class="gs-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-2">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="../img/banho.jpg" alt="Banho Tradicional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="../img/banho.jpg" loading="lazy" alt="Banho Tradicional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-blue-500 shadow-lg">
                             <i class="fa-solid fa-shower"></i>
@@ -320,7 +388,7 @@
                 <!-- Serviço 2 -->
                 <div class="gs-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-2" style="transition-delay: 100ms;">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800" alt="Tosa na Máquina" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800" loading="lazy" alt="Tosa na Máquina" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-orange-500 shadow-lg">
                             <i class="fa-solid fa-scissors"></i>
@@ -338,7 +406,7 @@
                 <!-- Serviço 3 -->
                 <div class="gs-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-2" style="transition-delay: 200ms;">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="../img/tosaNaTesoura.jpg" alt="Tosa na Tesoura" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="../img/tosaNaTesoura.jpg" loading="lazy" alt="Tosa na Tesoura" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-pink-500 shadow-lg">
                             <i class="fa-solid fa-cut"></i>
@@ -356,7 +424,7 @@
                 <!-- Serviço 4 -->
                 <div class="gs-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-2">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="../img/banhodeozonio.jpg" alt="Banho de Ozônio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="../img/banhodeozonio.jpg" loading="lazy" alt="Banho de Ozônio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-green-500 shadow-lg">
                             <i class="fa-solid fa-leaf"></i>
@@ -374,7 +442,7 @@
                 <!-- Serviço 5 -->
                 <div class="gs-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-2" style="transition-delay: 100ms;">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=800" alt="Remoção de Pelos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=800" loading="lazy" alt="Remoção de Pelos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-purple-500 shadow-lg">
                             <i class="fa-solid fa-paw"></i>
@@ -392,7 +460,7 @@
                 <!-- Serviço 6 -->
                 <div class="gs-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-2" style="transition-delay: 200ms;">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1541364983171-a8ba01e95cfc?auto=format&fit=crop&q=80&w=800" alt="Táxi Dog" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="../img/taxidog.jpeg" loading="lazy" alt="Táxi Dog" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-yellow-500 shadow-lg">
                             <i class="fa-solid fa-car"></i>
@@ -463,22 +531,22 @@
             <!-- CSS Grid Masonry Style -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
                 <div class="col-span-2 row-span-2 rounded-3xl overflow-hidden img-container gs-reveal">
-                    <img src="../img/cachorro5.jpg" alt="Cachorros brincando" class="w-full h-full object-cover img-zoom">
+                    <img src="../img/cachorro5.jpg" loading="lazy" alt="Cachorros brincando" class="w-full h-full object-cover img-zoom">
                 </div>
                 <div class="rounded-3xl overflow-hidden img-container gs-reveal">
-                    <img src="../img/cachorro3.jpeg" alt="Gatinho fofo" class="w-full h-full object-cover img-zoom">
+                    <img src="../img/cachorro3.jpeg" loading="lazy" alt="Gatinho fofo" class="w-full h-full object-cover img-zoom">
                 </div>
                 <div class="rounded-3xl overflow-hidden img-container gs-reveal">
-                    <img src="../img/cachorro4.jpeg" alt="Filhote" class="w-full h-full object-cover img-zoom">
+                    <img src="../img/cachorro4.jpeg" loading="lazy" alt="Filhote" class="w-full h-full object-cover img-zoom">
                 </div>
                 <div class="col-span-2 rounded-3xl overflow-hidden img-container gs-reveal">
-                    <img src="../img/cachorr8.jpeg" alt="Cachorro e Gato" class="w-full h-full object-cover img-zoom">
+                    <img src="../img/cachorr8.jpeg" loading="lazy" alt="Cachorro e Gato" class="w-full h-full object-cover img-zoom">
                 </div>
                 <div class="rounded-3xl overflow-hidden img-container gs-reveal">
-                    <img src="../img/cachorro2.jpeg" alt="Golden Retriever" class="w-full h-full object-cover img-zoom">
+                    <img src="../img/cachorro2.jpeg" loading="lazy" alt="Golden Retriever" class="w-full h-full object-cover img-zoom">
                 </div>
                 <div class="rounded-3xl overflow-hidden img-container gs-reveal">
-                    <img src="../img/cachorr7.jpeg" alt="Gato fofo" class="w-full h-full object-cover img-zoom">
+                    <img src="../img/cachorr7.jpeg" loading="lazy" alt="Gato fofo" class="w-full h-full object-cover img-zoom">
                 </div>
             </div>
         </div>
@@ -551,7 +619,7 @@
             <div id="instagram-carousel" class="instagram-track">
                 <!-- Imagem 1 -->
                 <div class="w-64 relative group cursor-pointer">
-                    <img src="../img/cachorro-instagram.jpeg" alt="Instagram 1" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="../img/cachorro-instagram.jpeg" loading="lazy" alt="Instagram 1" class="w-full h-64 object-cover rounded-2xl">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl flex items-center justify-center text-white text-3xl">
                         <a href="https://www.instagram.com/meucheirinhopetshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white hover:text-pink-500">
                             <i class="fa-brands fa-instagram"></i>
@@ -560,7 +628,7 @@
                 </div>
                 <!-- Imagem 2 -->
                 <div class="w-64 relative group cursor-pointer">
-                    <img src="../img/cachorro-instagram2.jpeg" alt="Instagram 2" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="../img/cachorro-instagram2.jpeg" loading="lazy" alt="Instagram 2" class="w-full h-64 object-cover rounded-2xl">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl flex items-center justify-center text-white text-3xl">
                         <a href="https://www.instagram.com/meucheirinhopetshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white hover:text-pink-500">
                             <i class="fa-brands fa-instagram"></i>
@@ -569,7 +637,7 @@
                 </div>
                 <!-- Imagem 3 -->
                 <div class="w-64 relative group cursor-pointer">
-                    <img src="../img/cachorro-instagram3.jpeg" alt="Instagram 3" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="../img/cachorro-instagram3.jpeg" loading="lazy" alt="Instagram 3" class="w-full h-64 object-cover rounded-2xl">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl flex items-center justify-center text-white text-3xl">
                         <a href="https://www.instagram.com/meucheirinhopetshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white hover:text-pink-500">
                             <i class="fa-brands fa-instagram"></i>
@@ -578,7 +646,7 @@
                 </div>
                 <!-- Imagem 4 -->
                 <div class="w-64 relative group cursor-pointer">
-                    <img src="../img/cachorro-instagram4.JPEG" alt="Instagram 4" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="../img/cachorro-instagram4.JPEG" loading="lazy" alt="Instagram 4" class="w-full h-64 object-cover rounded-2xl">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl flex items-center justify-center text-white text-3xl">
                         <a href="https://www.instagram.com/meucheirinhopetshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white hover:text-pink-500">
                             <i class="fa-brands fa-instagram"></i>
@@ -587,7 +655,7 @@
                 </div>
                 <!-- Imagem 5 -->
                 <div class="w-64 relative group cursor-pointer">
-                    <img src="../img/cachorro-instagram5.jpeg" alt="Instagram 5" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="../img/cachorro-instagram5.jpeg" loading="lazy" alt="Instagram 5" class="w-full h-64 object-cover rounded-2xl">
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl flex items-center justify-center text-white text-3xl">
                         <a href="https://www.instagram.com/meucheirinhopetshop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white hover:text-pink-500">
                             <i class="fa-brands fa-instagram"></i>
@@ -647,6 +715,42 @@
         </div>
     </section>
 
+    <section id="localizacao" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-extrabold text-gray-900">
+                📍 Nossa Localização
+            </h2>
+            <p class="text-gray-600 mt-4">
+                Venha visitar o Meu Cheirinho Pet Shop em Rio Grande da Serra.
+            </p>
+        </div>
+
+        <div class="overflow-hidden rounded-3xl shadow-xl">
+
+            <iframe
+                src="https://www.google.com/maps?q=Rua+José+Maria+de+Figueiredo+153,+Rio+Grande+da+Serra,+SP&output=embed"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+        <div class="mt-8 text-center">
+            <p class="font-semibold text-lg text-gray-800">
+                Rua José Maria de Figueiredo, 153 - Centro
+            </p>
+            <p class="text-gray-600">
+                Rio Grande da Serra - SP
+            </p>
+        </div>
+
+    </div>
+</section>
     <!-- 11. Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -720,5 +824,12 @@
     
     <!-- Seu JS Externo -->
     <script src="index.js"></script>
+    <a
+    href="https://wa.me/5511998390134?text=Olá! Gostaria de mais informações sobre os serviços do Meu Cheirinho Pet Shop."
+    target="_blank"
+    class="whatsapp-float"
+>
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
 </body>
 </html>
