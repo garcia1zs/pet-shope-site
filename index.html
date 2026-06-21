@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="stylesheet" href="src/input.css">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -38,100 +38,7 @@
     </script>
 
     <!-- Custom CSS -->
-    <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #FAFAFA; overflow-x: hidden; }
-        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.3); }
-        .gradient-text { background: linear-gradient(to right, #3B82F6, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .blob-bg { position: absolute; filter: blur(80px); z-index: -1; opacity: 0.4; }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1); }
-        .img-zoom { transition: transform 0.5s ease; }
-        .img-container:hover .img-zoom { transform: scale(1.1); }
-        .text-gray-600:hover { color: #3B82F6; text-decoration: underline; }
-        #contato{background-color:#10B981;}
-        
-        .instagram-wrapper::before, .instagram-wrapper::after {
-            content: ""; position: absolute; top: 0; width: 100px; height: 100%; z-index: 10; pointer-events: none;
-        }
-        .instagram-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
-        .instagram-wrapper::after { right: 0; background: linear-gradient(to left, white, transparent); }
-        .instagram-wrapper { width: 100%; overflow: hidden; position: relative; }
-        .instagram-track { display: flex; flex-direction: row; gap: 16px; width: max-content; }
-        .instagram-track > div { flex-shrink: 0; }
-        
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-        .whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-
-    width: 65px;
-    height: 65px;
-
-    background: #25D366;
-    color: white;
-
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 34px;
-
-    box-shadow: 0 8px 25px rgba(37, 211, 102, .4);
-
-    z-index: 9999;
-
-    transition: all .3s ease;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-
-.whatsapp-float::before {
-    content: "";
-    position: absolute;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: 50%;
-
-    background: #25D366;
-
-    animation: pulse-whatsapp 2s infinite;
-
-    z-index: -1;
-}
-
-@keyframes pulse-whatsapp {
-    0% {
-        transform: scale(1);
-        opacity: .7;
-    }
-
-    70% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-@media (max-width: 768px) {
-    .whatsapp-float {
-        width: 72px;
-        height: 72px;
-        font-size: 38px;
-    }
-}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-gray-800 antialiased">
 
@@ -167,7 +74,7 @@
                 <!-- Mobile Hamburger Button -->
                 <div class="md:hidden flex items-center">
                     <button id="btn-mobile-menu" class="text-gray-800 hover:text-petblue focus:outline-none text-2xl transition-colors">
-                        <i id="icon-mobile-menu" class="fa-solid fa-bars"></i>
+                        ☰
                     </button>
                 </div>
             </div>
@@ -369,7 +276,7 @@
                 <!-- Serviço 1 -->
                 <div class="gs-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-2">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="../img/banho.jpg" loading="lazy" alt="Banho Tradicional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="img/banho.webp" loading="lazy" alt="Banho Tradicional" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-blue-500 shadow-lg">
                             <i class="fa-solid fa-shower"></i>
@@ -423,7 +330,7 @@
                 <!-- Serviço 4 -->
                 <div class="gs-reveal bg-white rounded-[2rem] overflow-hidden shadow-soft hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col group hover:-translate-y-2">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="../img/banhodeozonio.jpg" loading="lazy" alt="Banho de Ozônio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="img/banhodeozonio.webp" loading="lazy" alt="Banho de Ozônio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-green-500 shadow-lg">
                             <i class="fa-solid fa-leaf"></i>
@@ -530,7 +437,7 @@
             <!-- CSS Grid Masonry Style -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
                 <div class="col-span-2 row-span-2 rounded-3xl overflow-hidden img-container gs-reveal">
-                    <img src="../img/cachorro5.jpg" loading="lazy" alt="Cachorros brincando" class="w-full h-full object-cover img-zoom">
+                    <img src="img/cachorro5.webp" loading="lazy" alt="Cachorros brincando" class="w-full h-full object-cover img-zoom">
                 </div>
                 <div class="rounded-3xl overflow-hidden img-container gs-reveal">
                     <img src="img/cachorro3.webp" loading="lazy" alt="Gatinho fofo" class="w-full h-full object-cover img-zoom">
@@ -539,7 +446,7 @@
                     <img src="img/cachorro4.webp" loading="lazy" alt="Filhote" class="w-full h-full object-cover img-zoom">
                 </div>
                 <div class="col-span-2 rounded-3xl overflow-hidden img-container gs-reveal">
-                    <img src="../img/cachorr8.jpeg" loading="lazy" alt="Cachorro e Gato" class="w-full h-full object-cover img-zoom">
+                    <img src="img/banho.webp" loading="lazy" alt="Cachorro e Gato" class="w-full h-full object-cover img-zoom">
                 </div>
                 <div class="rounded-3xl overflow-hidden img-container gs-reveal">
                     <img src="img/cachorro2.webp" loading="lazy" alt="Golden Retriever" class="w-full h-full object-cover img-zoom">
@@ -707,8 +614,8 @@
                 <a href="https://wa.me/5511998390134?text=ola,%20tudo%20bem?%20gostaria%20de%20agendar um serviço" class="btn-pulse inline-flex justify-center items-center gap-2 bg-white text-petblue px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors shadow-xl">
                     <i class="fa-brands fa-whatsapp text-green-500 text-xl"></i> Falar no WhatsApp
                 </a>
-                <a href="#" class="inline-flex justify-center items-center gap-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-petblue transition-colors">
-                    Ver Localização <i class="fa-solid fa-map-location-dot"></i>
+                <a href="#" class="inline-flex justify-center items-center gap-2 bg-transpaent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-petblue transition-colors">
+                    Ver Localização r<i class="fa-solid fa-map-location-dot"></i>
                 </a>
             </div>
         </div>
